@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BloodConnect - Blood Donation Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background: #b30000;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #b30000, #e63946);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            background: white;
+            color: #b30000;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .section {
+            padding: 50px 8%;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: #b30000;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #b30000;
+            margin-bottom: 12px;
+        }
+
+        form {
+            max-width: 550px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        form button {
+            width: 100%;
+            padding: 13px;
+            background: #b30000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media(max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🩸 BloodConnect</h1>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#donate">Donate</a>
+        <a href="#request">Request</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+
+<section class="hero" id="home">
+
+    <h2>Donate Blood, Save Lives</h2>
+
+    <p>
+        Connect blood donors with people who need blood.
+    </p>
+
+    <a href="#donate" class="btn">Become a Donor</a>
+    <a href="#request" class="btn">Request Blood</a>
+
+</section>
+
+
+<section class="section" id="about">
+
+    <h2>About Our Website</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🩸 Find Blood</h3>
+            <p>
+                Search for the required blood group and connect
+                with registered donors.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>❤️ Become a Donor</h3>
+            <p>
+                Register as a donor and help people during
+                emergency situations.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📋 Blood Request</h3>
+            <p>
+                Submit a blood request with your required blood
+                group and location.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="donate">
+
+    <h2>Donor Registration</h2>
+
+    <form id="donorForm">
+
+        <label>Full Name</label>
+        <input type="text" id="donorName" required>
+
+        <label>Blood Group</label>
+
+        <select id="donorBlood" required>
+            <option value="">Select Blood Group</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+        </select>
+
+        <label>Location</label>
+        <input type="text" id="donorLocation" required>
+
+        <label>Phone Number</label>
+        <input type="tel" id="donorPhone" required>
+
+        <button type="submit">Register as Donor</button>
+
+        <p id="donorMessage"></p>
+
+    </form>
+
+</section>
+
+
+<section class="section" id="request">
+
+    <h2>Request Blood</h2>
+
+    <form id="requestForm">
+
+        <label>Patient Name</label>
+        <input type="text" id="patientName" required>
+
+        <label>Required Blood Group</label>
+
+        <select id="requiredBlood" required>
+            <option value="">Select Blood Group</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+        </select>
+
+        <label>Hospital / Location</label>
+        <input type="text" id="hospital" required>
+
+        <label>Contact Number</label>
+        <input type="tel" id="contact" required>
+
+        <label>Additional Information</label>
+        <textarea id="details"></textarea>
+
+        <button type="submit">Submit Blood Request</button>
+
+        <p id="requestMessage"></p>
+
+    </form>
+
+</section>
+
+
+<section class="section">
+
+    <h2>Why Donate Blood?</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>❤️ Save Lives</h3>
+            <p>
+                A blood donation can help patients who need
+                blood during medical emergencies.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🤝 Help Others</h3>
+            <p>
+                Your donation can support patients and families
+                during difficult situations.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🌍 Support Community</h3>
+            <p>
+                Blood donation helps maintain an adequate blood
+                supply in the community.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>© 2026 BloodConnect | Blood Donation Management Website</p>
+
+</footer>
+
+
+<script>
+
+    document.getElementById("donorForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        document.getElementById("donorMessage").innerText =
+            "✅ Donor registration submitted successfully!";
+
+        this.reset();
+
+    });
+
+
+    document.getElementById("requestForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        document.getElementById("requestMessage").innerText =
+            "✅ Blood request submitted successfully!";
+
+        this.reset();
+
+    });
+
+</script>
+
+</body>
+</html>
